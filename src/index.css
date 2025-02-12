@@ -6,3 +6,9 @@ body {
   overflow-x: hidden;
   font-family: "Open Sans", serif;
 }
+
+main {
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+}

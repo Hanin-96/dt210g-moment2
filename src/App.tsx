@@ -80,7 +80,7 @@ function App() {
           error && <p>{error}</p>
         }
 
-        {todos.map((todo, index) => (
+        {todos.map((todo) => (
           <Todo todoProp={todo} key={todo._id} todoUpdateProp={getTodos} statusArrProp={statusArr} />
         ))}
       </main>

@@ -91,11 +91,16 @@ function Form({ todoFormProp, statusArrProp }: { todoFormProp: Function, statusA
                 throw Error("Misslyckades lägga till todo poster" + response.status);
 
             } else {
-                const todoPosts = await response.json();
+
+                //Kallar på getTodos funktion via prop från föräldrar
+                //Hämtar alla todos poster
                 todoFormProp();
 
                 //Rensa formuläret
                 setFormData({ _id: "", title: "", description: "", status: statusArrProp[0] })
+
+                //Rensa felmeddelande
+                setFetchError(null);
             }
 
         }
@@ -135,6 +140,9 @@ function Form({ todoFormProp, statusArrProp }: { todoFormProp: Function, statusA
                     </select>
                 </div>
                 <input type="submit" value="Lägg till" style={submitStyle} />
+                {
+                    fetchError && <p>{fetchError}</p>
+                }
             </form>
         </>
     )

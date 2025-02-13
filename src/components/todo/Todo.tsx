@@ -79,8 +79,6 @@ function Todo({ todoProp, todoUpdateProp, statusArrProp }: { todoProp: FormDataI
                 throw Error();
             }
 
-            const updatedData = await response.json();
-
             //Kallar på getTodos funktion via prop från föräldrar
             //Hämtar alla todos poster
             todoUpdateProp();
@@ -125,7 +123,7 @@ function Todo({ todoProp, todoUpdateProp, statusArrProp }: { todoProp: FormDataI
                 <div style={{marginTop:"2rem"}}>
                     <p style={statusPStyle}>{todoProp.status}</p>
                     <label htmlFor="status">Ändra status:</label>
-                    <select name="status" id="status" defaultValue={todoProp.status} onChange={updateStatus} style={{marginTop:"0.5rem"}}>
+                    <select name="status" defaultValue={todoProp.status} onChange={updateStatus} style={{marginTop:"0.5rem"}}>
                         {
                             statusArrProp.map((status, index) => (
                                 <option key={index} value={status}>{status}</option>

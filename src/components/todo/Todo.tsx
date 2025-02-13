@@ -130,7 +130,7 @@ function Todo({ todoProp, todoUpdateProp, statusArrProp }: { todoProp: FormDataI
                             ))
                         }
                     </select>
-                    <input type="button" value="Radera" style={{...deleteBtnStyle, width: "100%"}} onClick={() => deleteTodo(todoProp._id)} />
+                    <input type="button" value="Radera" style={{...deleteBtnStyle, width: "100%", fontSize: "1.8rem"}} onClick={() => deleteTodo(todoProp._id)} />
                 </div>
             </article>
         </>

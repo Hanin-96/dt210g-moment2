@@ -4,7 +4,8 @@ import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import Form from './components/form/Form';
 import { FormDataInterface } from './interfaces/Formdata';
-import Todo from './components/todo/todo';
+import Todo from './components/todo/Todo';
+import LoadingSpinner from './components/loadingSpinner/LoadingSpinner';
 
 function App() {
 
@@ -61,17 +62,16 @@ function App() {
       <Header />
       <main>
 
-        <Form />
+        <Form todoFormProp={getTodos}/>
 
         {
-          loading && <p>Laddar in todos...</p>
+          loading && <LoadingSpinner />
         }
 
         {
           error && <p>{error}</p>
         }
 
-        <h2 style={{ marginBottom: "1rem", marginTop: "3rem" }}>Todos</h2>
         {todos.map((todo, index) => (
           <Todo todoProp={todo} key={todo._id} todoUpdateProp={getTodos}/>
         ))}

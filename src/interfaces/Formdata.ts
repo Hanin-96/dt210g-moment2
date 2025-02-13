@@ -2,6 +2,6 @@
   export interface FormDataInterface {
     _id: string,
     title: string,
-    description: string,
+    description?: string,
     status: string
   }

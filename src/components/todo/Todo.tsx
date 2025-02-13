@@ -119,7 +119,7 @@ function Todo({ todoProp, todoUpdateProp, statusArrProp }: { todoProp: FormDataI
         <>
             <article style={{ ...todoStyle, border: "4px solid", borderColor: todoStatusStyle, backgroundColor: bgStatusStyle }}>
                 <h3 className={todoModuleStyle.h3}>{todoProp.title}</h3>
-                <p className={todoModuleStyle.p} style={{marginTop:"2rem"}}>{todoProp.description}</p>
+                <p style={{marginTop:"2rem"}}>{todoProp.description}</p>
                 <div style={{marginTop:"2rem"}}>
                     <p style={statusPStyle}>{todoProp.status}</p>
                     <label htmlFor="status">Ändra status:</label>

@@ -1,4 +1,4 @@
-import './LoadingSpinner.module.css';
+import loadingSpinnerCss from './LoadingSpinner.module.css';
 
 function LoadingSpinner() {
     const spinnerStyle: object = {
@@ -19,7 +19,7 @@ function LoadingSpinner() {
     return (
         <>
             <div style={spinnerWrap} >
-                <div style={spinnerStyle}></div>
+                <div style={spinnerStyle} className={loadingSpinnerCss.loadingAnim}></div>
             </div>
         </>
     )

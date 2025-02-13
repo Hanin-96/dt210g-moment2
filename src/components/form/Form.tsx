@@ -1,7 +1,7 @@
 import { FormDataInterface } from "../../interfaces/Formdata";
 import { useState } from "react";
-import './Form.module.css';
 import { ErrorInterface } from "../../interfaces/ErrorInterface";
+import formStyleModule from './Form.module.css';
 
 function Form({ todoFormProp, statusArrProp }: { todoFormProp: Function, statusArrProp: Array<string> }) {
 
@@ -114,7 +114,7 @@ function Form({ todoFormProp, statusArrProp }: { todoFormProp: Function, statusA
 
     return (
         <>
-            <form onSubmit={submitForm} style={formStyle}>
+            <form onSubmit={submitForm} style={formStyle} className={formStyleModule.form}>
                 <div className='form-title'>
                     <label htmlFor="title">Titel:</label>
                     <input type="text" value={formData.title} onChange={(event) => setFormData({ ...formData, title: event.target.value })} />

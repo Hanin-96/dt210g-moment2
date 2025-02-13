@@ -1,4 +1,11 @@
-input, textarea, select {
+
+.form {
+    margin: 0 auto;
+    max-width: 400px;
+    width: 100%;
+}
+
+.form input, textarea, select {
     display: block;
     margin-bottom: 1.5rem;
     width: 100%;
@@ -6,12 +13,8 @@ input, textarea, select {
     padding: 0.5rem;
 }
 
+
 label {
     font-size: 1.6rem;
 }
 
-form {
-    margin: 0 auto;
-    max-width: 400px;
-    width: 100%;
-}

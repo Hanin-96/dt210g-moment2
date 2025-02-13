@@ -1,5 +1,5 @@
 import { FormDataInterface } from "../../interfaces/Formdata";
-import './Todo.module.css';
+import todoModuleStyle from './Todo.module.css';
 
 
 function Todo({ todoProp, todoUpdateProp, statusArrProp }: { todoProp: FormDataInterface, todoUpdateProp: Function, statusArrProp: Array<string> }) {
@@ -118,8 +118,8 @@ function Todo({ todoProp, todoUpdateProp, statusArrProp }: { todoProp: FormDataI
     return (
         <>
             <article style={{ ...todoStyle, border: "4px solid", borderColor: todoStatusStyle, backgroundColor: bgStatusStyle }}>
-                <h3>{todoProp.title}</h3>
-                <p style={{marginTop:"2rem"}}>{todoProp.description}</p>
+                <h3 className={todoModuleStyle.h3}>{todoProp.title}</h3>
+                <p className={todoModuleStyle.p} style={{marginTop:"2rem"}}>{todoProp.description}</p>
                 <div style={{marginTop:"2rem"}}>
                     <p style={statusPStyle}>{todoProp.status}</p>
                     <label htmlFor="status">Ändra status:</label>

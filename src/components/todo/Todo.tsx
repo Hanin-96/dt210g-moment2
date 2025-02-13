@@ -1,12 +1,8 @@
 import { FormDataInterface } from "../../interfaces/Formdata";
 import './Todo.module.css';
-import { ErrorInterface } from "../../interfaces/errorInterface";
 
 
-function Todo({ todoProp, todoUpdateProp }: { todoProp: FormDataInterface, todoUpdateProp: Function }) {
-
-    //Select options array
-    const statusArr = ["Ej påbörjad", "Pågående", "Avklarad"];
+function Todo({ todoProp, todoUpdateProp, statusArrProp }: { todoProp: FormDataInterface, todoUpdateProp: Function, statusArrProp: Array<string> }) {
 
     const todoStyle = {
         backgroundColor: "#ebebeb",
@@ -26,7 +22,7 @@ function Todo({ todoProp, todoUpdateProp }: { todoProp: FormDataInterface, todoU
         cursor: "pointer"
     }
 
-    const todoStatusStyle = todoProp.status === "Ej påbörjad" ? "red" : todoProp.status === "Pågående" ? "orange" : "green";
+    const todoStatusStyle = todoProp.status === statusArrProp[0] ? "red" : todoProp.status === statusArrProp[1] ? "orange" : "green";
 
     // Handle delete action
     const handleDelete = async () => {
@@ -118,7 +114,7 @@ function Todo({ todoProp, todoUpdateProp }: { todoProp: FormDataInterface, todoU
                     <label htmlFor="status">Ändra status</label>
                     <select name="status" id="status" defaultValue={todoProp.status} onChange={updateStatus}>
                         {
-                            statusArr.map((status, index) => (
+                            statusArrProp.map((status, index) => (
                                 <option key={index} value={status}>{status}</option>
                             ))
                         }

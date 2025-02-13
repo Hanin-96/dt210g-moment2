@@ -18,6 +18,9 @@ function App() {
   //State för loading av todos
   const [loading, setLoading] = useState<boolean>(false);
 
+  //Select options array, skickas som prop till Todo, Form
+  const statusArr = ["Ej påbörjad", "Pågående", "Avklarad"];
+
   //useEffect för att hämta in poster
   useEffect(() => {
     getTodos();
@@ -42,7 +45,11 @@ function App() {
         const postData = await response.json();
         const storedPosts = postData.storedTodos;
 
-        setTodos(storedPosts);
+        const sortedTodos = storedPosts.sort((a: FormDataInterface, b: FormDataInterface) => {
+          return statusArr.indexOf(a.status) - statusArr.indexOf(b.status);
+        });
+
+        setTodos(sortedTodos);
 
       }
 
@@ -62,7 +69,7 @@ function App() {
       <Header />
       <main>
 
-        <Form todoFormProp={getTodos}/>
+        <Form todoFormProp={getTodos} statusArrProp={statusArr} />
 
         {
           loading && <LoadingSpinner />
@@ -73,12 +80,10 @@ function App() {
         }
 
         {todos.map((todo, index) => (
-          <Todo todoProp={todo} key={todo._id} todoUpdateProp={getTodos}/>
+          <Todo todoProp={todo} key={todo._id} todoUpdateProp={getTodos} statusArrProp={statusArr} />
         ))}
-
-
-
       </main>
+      
       <Footer />
 
 

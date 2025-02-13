@@ -3,7 +3,7 @@ import { useState } from "react";
 import './Form.module.css';
 import { ErrorInterface } from "../../interfaces/ErrorInterface";
 
-function Form({ todoFormProp }: { todoFormProp: Function }) {
+function Form({ todoFormProp, statusArrProp }: { todoFormProp: Function, statusArrProp: Array<string> }) {
 
     //Styling
     const submitStyle = {
@@ -15,11 +15,8 @@ function Form({ todoFormProp }: { todoFormProp: Function }) {
         fontSize: "1.8rem"
     }
 
-    //Select options array
-    const statusArr = ["Ej påbörjad", "Pågående", "Avklarad"];
-
     //State för formulär
-    const [formData, setFormData] = useState<FormDataInterface>({ _id: "", title: "", description: "", status: statusArr[0] })
+    const [formData, setFormData] = useState<FormDataInterface>({ _id: "", title: "", description: "", status: statusArrProp[0] })
 
     //State för error validering
     const [formErrors, setFormErrors] = useState<ErrorInterface>({});
@@ -90,7 +87,7 @@ function Form({ todoFormProp }: { todoFormProp: Function }) {
                 todoFormProp();
 
                 //Rensa formuläret
-                setFormData({ _id: "", title: "", description: "", status: statusArr[0] })
+                setFormData({ _id: "", title: "", description: "", status: statusArrProp[0] })
             }
 
         }
@@ -123,7 +120,7 @@ function Form({ todoFormProp }: { todoFormProp: Function }) {
                     <select name="status" id="status" value={formData.status} onChange={(event) => setFormData({ ...formData, status: event.target.value })}>
                         {
                             //Loopar igenom alla options
-                            statusArr.map((status, index) => (
+                            statusArrProp.map((status, index) => (
                                 <option key={index}>{status}</option>
                             ))
                         }

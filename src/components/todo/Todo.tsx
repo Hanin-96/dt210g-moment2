@@ -26,10 +26,12 @@ function Todo({ todoProp, todoUpdateProp, statusArrProp }: { todoProp: FormDataI
 
     const todoStatusStyle = todoProp.status === statusArrProp[0] ? "red" : todoProp.status === statusArrProp[1] ? "#ff7700" : "green";
 
+    const bgStatusStyle = todoProp.status === statusArrProp[0] ? "rgb(255, 0, 0, 0.1)" : todoProp.status === statusArrProp[1] ? "rgb(255, 119, 0, 0.1)" : "rgb(0, 128, 0, 0.1)";
+
     const statusPStyle = {
         color: todoStatusStyle, 
         marginBottom: "1rem", 
-        borderStyle: "solid",
+        border: "solid 2px",
         padding: "0.5rem"
     }
 
@@ -117,7 +119,7 @@ function Todo({ todoProp, todoUpdateProp, statusArrProp }: { todoProp: FormDataI
 
     return (
         <>
-            <article style={{ ...todoStyle, border: "2px solid", borderColor: todoStatusStyle }}>
+            <article style={{ ...todoStyle, border: "4px solid", borderColor: todoStatusStyle, backgroundColor: bgStatusStyle }}>
                 <h3>{todoProp.title}</h3>
                 <p style={{marginTop:"2rem"}}>{todoProp.description}</p>
                 <div style={{marginTop:"2rem"}}>

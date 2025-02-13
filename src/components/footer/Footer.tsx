@@ -1,7 +1,7 @@
 function Footer() {
     const footerStyle: object = {
-        backgroundColor: "#FFA500",
-        color: "#1e1e1e",
+        backgroundColor: "#1e1e1e",
+        color: "white",
         textAlign: "center",
         padding: "1rem",
         fontSize: "1.5rem",

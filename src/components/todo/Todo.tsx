@@ -119,9 +119,9 @@ function Todo({ todoProp, todoUpdateProp, statusArrProp }: { todoProp: FormDataI
         <>
             <article style={{ ...todoStyle, border: "4px solid", borderColor: todoStatusStyle, backgroundColor: bgStatusStyle }}>
                 <h3 className={todoModuleStyle.h3}>{todoProp.title}</h3>
-                <p style={{marginTop:"2rem"}}>{todoProp.description}</p>
+                <p className={todoModuleStyle.p} style={{marginTop:"2rem"}}>{todoProp.description}</p>
                 <div style={{marginTop:"2rem"}}>
-                    <p style={statusPStyle}>{todoProp.status}</p>
+                    <p className={todoModuleStyle.p} style={statusPStyle}>{todoProp.status}</p>
                     <label htmlFor="status">Ändra status:</label>
                     <select name="status" defaultValue={todoProp.status} onChange={updateStatus} style={{marginTop:"0.5rem"}}>
                         {
@@ -130,7 +130,7 @@ function Todo({ todoProp, todoUpdateProp, statusArrProp }: { todoProp: FormDataI
                             ))
                         }
                     </select>
-                    <input type="button" value="Radera" style={deleteBtnStyle} onClick={() => deleteTodo(todoProp._id)} />
+                    <input type="button" value="Radera" style={{...deleteBtnStyle, width: "100%"}} onClick={() => deleteTodo(todoProp._id)} />
                 </div>
             </article>
         </>

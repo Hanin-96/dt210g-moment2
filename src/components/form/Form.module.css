@@ -3,6 +3,7 @@ input, textarea, select {
     margin-bottom: 1.5rem;
     width: 100%;
     font-size: 1.6rem;
+    padding: 0.5rem;
 }
 
 label {

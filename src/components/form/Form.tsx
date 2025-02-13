@@ -15,6 +15,14 @@ function Form({ todoFormProp, statusArrProp }: { todoFormProp: Function, statusA
         fontSize: "1.8rem"
     }
 
+    const formStyle = {
+        marginBottom: "5rem",
+        backgroundColor: "white",
+        boxShadow: "1px 1px 10px -3px rgba(30, 30, 30, 0.5)",
+        padding: "1rem",
+        borderRadius: "1rem"
+    }
+
     //State för formulär
     const [formData, setFormData] = useState<FormDataInterface>({ _id: "", title: "", description: "", status: statusArrProp[0] })
 
@@ -101,7 +109,7 @@ function Form({ todoFormProp, statusArrProp }: { todoFormProp: Function, statusA
 
     return (
         <>
-            <form onSubmit={submitForm}>
+            <form onSubmit={submitForm} style={formStyle}>
                 <div className='form-title'>
                     <label htmlFor="title">Titel:</label>
                     <input type="text" value={formData.title} onChange={(event) => setFormData({ ...formData, title: event.target.value })} />

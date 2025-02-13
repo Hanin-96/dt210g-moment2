@@ -45,6 +45,7 @@ function App() {
         const postData = await response.json();
         const storedPosts = postData.storedTodos;
 
+        //Sortera efter status
         const sortedTodos = storedPosts.sort((a: FormDataInterface, b: FormDataInterface) => {
           return statusArr.indexOf(a.status) - statusArr.indexOf(b.status);
         });
@@ -83,7 +84,7 @@ function App() {
           <Todo todoProp={todo} key={todo._id} todoUpdateProp={getTodos} statusArrProp={statusArr} />
         ))}
       </main>
-      
+
       <Footer />
 
 

@@ -3,9 +3,10 @@ function Header() {
     backgroundColor: "#1e1e1e",
     color: "#FFFFFF",
     textAlign: "center",
-    padding: "1rem",
+    padding: "2rem",
     fontSize: "1.5rem",
-    lineHeight: "150%"
+    lineHeight: "150%",
+    marginBottom: "2rem"
 }
   const headerTitle = "Moment 2 - Todo";
     return (

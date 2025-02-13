@@ -5,6 +5,7 @@ body {
   max-width: 1920px;
   overflow-x: hidden;
   font-family: "Open Sans", serif;
+  background-color: rgb(255, 165, 0, 0.2);
 }
 
 main {

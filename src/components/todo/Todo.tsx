@@ -5,11 +5,13 @@ import './Todo.module.css';
 function Todo({ todoProp, todoUpdateProp, statusArrProp }: { todoProp: FormDataInterface, todoUpdateProp: Function, statusArrProp: Array<string> }) {
 
     const todoStyle = {
-        backgroundColor: "#ebebeb",
+        backgroundColor: "white",
         padding: "1rem",
         margin: "0 auto",
         marginBottom: "2rem",
         maxWidth: "40rem",
+        borderRadius: "1rem",
+        boxShadow: "1px 1px 10px -3px rgba(30, 30, 30, 0.5)"
     }
 
     const deleteBtnStyle = {
@@ -22,7 +24,15 @@ function Todo({ todoProp, todoUpdateProp, statusArrProp }: { todoProp: FormDataI
         cursor: "pointer"
     }
 
-    const todoStatusStyle = todoProp.status === statusArrProp[0] ? "red" : todoProp.status === statusArrProp[1] ? "orange" : "green";
+    const todoStatusStyle = todoProp.status === statusArrProp[0] ? "red" : todoProp.status === statusArrProp[1] ? "#ff7700" : "green";
+
+    const statusPStyle = {
+        color: todoStatusStyle, 
+        marginBottom: "1rem", 
+        borderStyle: "solid",
+        padding: "0.5rem"
+    }
+
 
     // Handle delete action
     const handleDelete = async () => {
@@ -109,17 +119,17 @@ function Todo({ todoProp, todoUpdateProp, statusArrProp }: { todoProp: FormDataI
         <>
             <article style={{ ...todoStyle, border: "2px solid", borderColor: todoStatusStyle }}>
                 <h3>{todoProp.title}</h3>
-                <p>{todoProp.description}</p>
-                <div>
-                    <label htmlFor="status">Ändra status</label>
-                    <select name="status" id="status" defaultValue={todoProp.status} onChange={updateStatus}>
+                <p style={{marginTop:"2rem"}}>{todoProp.description}</p>
+                <div style={{marginTop:"2rem"}}>
+                    <p style={statusPStyle}>{todoProp.status}</p>
+                    <label htmlFor="status">Ändra status:</label>
+                    <select name="status" id="status" defaultValue={todoProp.status} onChange={updateStatus} style={{marginTop:"0.5rem"}}>
                         {
                             statusArrProp.map((status, index) => (
                                 <option key={index} value={status}>{status}</option>
                             ))
                         }
                     </select>
-                    <p style={{ color: todoStatusStyle }}>{todoProp.status}</p>
                     <input type="button" value="Radera" style={deleteBtnStyle} onClick={() => deleteTodo(todoProp._id)} />
                 </div>
             </article>

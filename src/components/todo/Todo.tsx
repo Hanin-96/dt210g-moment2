@@ -36,29 +36,7 @@ function Todo({ todoProp, getTodosProp, statusArrProp }: { todoProp: FormDataInt
     }
 
 
-    // Handle delete action
-    const handleDelete = async () => {
-        try {
-            const response = await fetch("https://dt210g-moment2-api-j7hq.onrender.com/delete/todo/" + todoProp._id, {
-                method: "DELETE",
-                headers: {
-                    "Content-type": "application/json"
-                }
-            });
-
-            if (!response.ok) {
-                throw Error();
-            }
-
-            //Kallar på getTodos funktion via prop från föräldrar
-            //Hämtar alla todos poster
-            getTodosProp();
-
-        } catch (error) {
-            console.error("Misslyckades radera todo:", error);
-        }
-    }
-
+   
     // Uppdatera status på todo
     const updateStatus = async (event: any) => {
         let newStatus = event.target.value;
@@ -83,7 +61,6 @@ function Todo({ todoProp, getTodosProp, statusArrProp }: { todoProp: FormDataInt
             //Hämtar alla todos poster
             getTodosProp();
 
-            <input type="button" value="Radera" style={deleteBtnStyle} onClick={handleDelete} />
         } catch (error) {
             console.error("Misslyckades uppdatera status:", error);
         }

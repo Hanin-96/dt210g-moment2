@@ -3,7 +3,7 @@ import { useState } from "react";
 import { ErrorInterface } from "../../interfaces/ErrorInterface";
 import formStyleModule from './Form.module.css';
 
-function Form({ todoFormProp, statusArrProp }: { todoFormProp: Function, statusArrProp: Array<string> }) {
+function Form({ getTodosProp, statusArrProp }: { getTodosProp: Function, statusArrProp: string [] }) {
 
     //Styling
     const submitStyle = {
@@ -47,7 +47,7 @@ function Form({ todoFormProp, statusArrProp }: { todoFormProp: Function, statusA
         return errors;
     })
 
-    //Funktion för att skicka formulär
+    //Funktion för kontroll innan formulär skickas
     const submitForm = (async (event: any) => {
         event.preventDefault();
 
@@ -94,7 +94,7 @@ function Form({ todoFormProp, statusArrProp }: { todoFormProp: Function, statusA
 
                 //Kallar på getTodos funktion via prop från föräldrar
                 //Hämtar alla todos poster
-                todoFormProp();
+                getTodosProp();
 
                 //Rensa formuläret
                 setFormData({ _id: "", title: "", description: "", status: statusArrProp[0] })

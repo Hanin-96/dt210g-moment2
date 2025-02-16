@@ -2,7 +2,7 @@ import { FormDataInterface } from "../../interfaces/Formdata";
 import todoModuleStyle from './Todo.module.css';
 
 
-function Todo({ todoProp, todoUpdateProp, statusArrProp }: { todoProp: FormDataInterface, todoUpdateProp: Function, statusArrProp: Array<string> }) {
+function Todo({ todoProp, getTodosProp, statusArrProp }: { todoProp: FormDataInterface, getTodosProp: Function, statusArrProp: string [] }) {
 
     const todoStyle = {
         backgroundColor: "white",
@@ -52,7 +52,7 @@ function Todo({ todoProp, todoUpdateProp, statusArrProp }: { todoProp: FormDataI
 
             //Kallar på getTodos funktion via prop från föräldrar
             //Hämtar alla todos poster
-            todoUpdateProp();
+            getTodosProp();
 
         } catch (error) {
             console.error("Misslyckades radera todo:", error);
@@ -81,7 +81,7 @@ function Todo({ todoProp, todoUpdateProp, statusArrProp }: { todoProp: FormDataI
 
             //Kallar på getTodos funktion via prop från föräldrar
             //Hämtar alla todos poster
-            todoUpdateProp();
+            getTodosProp();
 
             <input type="button" value="Radera" style={deleteBtnStyle} onClick={handleDelete} />
         } catch (error) {
@@ -92,7 +92,7 @@ function Todo({ todoProp, todoUpdateProp, statusArrProp }: { todoProp: FormDataI
     //Radera todo
     const deleteTodo = async (_id: string) => {
         try {
-            console.log(todoProp._id);
+            //console.log(todoProp._id);
             const response = await fetch("https://dt210g-moment2-api-j7hq.onrender.com/delete/todo/" + _id, {
                 method: "DELETE",
                 headers: {
@@ -106,7 +106,7 @@ function Todo({ todoProp, todoUpdateProp, statusArrProp }: { todoProp: FormDataI
     
             //Kallar på getTodos funktion via prop från föräldrar
             //Hämtar alla todos poster
-            todoUpdateProp();
+            getTodosProp();
     
         } catch (error) {
             console.error("Misslyckades radera todo:", error);
